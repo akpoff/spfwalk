@@ -2,8 +2,8 @@
 
 PROG=	spfwalk
 SRCS=	spfwalk.c dns.c
-#MAN=	doas.1 doas.conf.5
-NOMAN=
+MAN=	spfwalk.1
+#NOMAN=
 
 CFLAGS+= -I${.CURDIR}
 CFLAGS+= -Wall
