@@ -24,12 +24,19 @@
 .Sh SYNOPSIS
 .Nm spfwalk
 .Bk -words
+.Op Fl h
 .Ar domain ...
 .Ek
 .Sh DESCRIPTION
 .Nm
 recursively looks up SPF records for the domains passed in on the
 command line, printing the results to stdout, one line per record.
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It Fl h
+Help message.
+.El
 .Sh EXAMPLES
 Look-up a single domain:
 .Bd -literal
