@@ -32,6 +32,7 @@
 #include "dns.h"
 
 
+static void	usage(void);
 static void	dispatch_txt(struct dns_rr *);
 static void	dispatch_mx(struct dns_rr *);
 static void	dispatch_a(struct dns_rr *);
@@ -40,10 +41,27 @@ static void	dispatch_aaaa(struct dns_rr *);
 void	lookup_record(int, const char *, void (*)(struct dns_rr *));
 void	dispatch_record(struct asr_result *, void *);
 
+static void
+usage(void)
+{
+	extern char	*__progname;
+
+	fprintf(stderr, "usage: %s [-h] domain ...\n", __progname);
+	exit(1);
+}
+
 int
 main(int argc, char *argv[])
 {
-	int		i;
+	int		c,i;
+
+	while ((c = getopt(argc, argv, "h")) != -1) {
+		switch (c) {
+		case 'h':
+			usage();
+			break;
+		}
+	}
 
   	event_init();
 
