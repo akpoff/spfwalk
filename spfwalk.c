@@ -214,6 +214,13 @@ dispatch_txt(struct dns_rr *rr)
 			lookup_record(T_MX, buf2, dispatch_mx);
 			continue;
 		}
+		if (strcasecmp(*ap, "a") == 0 || strcasecmp(*ap, "+a") == 0) {
+			print_dname(rr->rr_dname, buf2, sizeof(buf2));
+			buf2[strlen(buf2) - 1] = '\0';
+			lookup_record(T_A, buf2, dispatch_a);
+			lookup_record(T_AAAA, buf2, dispatch_aaaa);
+			continue;
+		}
 	}
 	*ap = NULL;
 }
