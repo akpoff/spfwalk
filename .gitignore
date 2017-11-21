@@ -1,0 +1,8 @@
+# backup and temp files
+*~
+\#*\#
+.\#*
+
+# c artifacts
+*.o
+*.d
