@@ -192,6 +192,14 @@ dispatch_txt(struct dns_rr *rr)
 			printf("%s\n", *(ap) + 4);
 			continue;
 		}
+		if (strncasecmp("+ip4:", *ap, 5) == 0) {
+			printf("%s\n", *(ap) + 5);
+			continue;
+		}
+		if (strncasecmp("+ip6:", *ap, 5) == 0) {
+			printf("%s\n", *(ap) + 5);
+			continue;
+		}		
 		if (strncasecmp("include:", *ap, 8) == 0) {
 			lookup_record(T_TXT, *(ap) + 8, dispatch_txt);
 			continue;
@@ -200,7 +208,7 @@ dispatch_txt(struct dns_rr *rr)
 			lookup_record(T_TXT, *(ap) + 9, dispatch_txt);
 			continue;
 		}
-		if (strcasecmp(*ap, "mx") == 0) {
+		if (strcasecmp(*ap, "mx") == 0 || strcasecmp(*ap, "+mx") == 0) {
 			print_dname(rr->rr_dname, buf2, sizeof(buf2));
 			buf2[strlen(buf2) - 1] = '\0';
 			lookup_record(T_MX, buf2, dispatch_mx);
