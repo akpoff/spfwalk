@@ -84,8 +84,8 @@ main(int argc, char *argv[])
 	event_init();
 
 	if (argc > 0) {
-	  for (i = 0; argv[i]; ++i)
-		lookup_record(T_TXT, argv[i], dispatch_txt);
+		for (i = 0; argv[i]; ++i)
+			lookup_record(T_TXT, argv[i], dispatch_txt);
 	} else {
 		char *line = NULL;
 		size_t linesize = 0;
