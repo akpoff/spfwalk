@@ -10,22 +10,6 @@ The output is a list of IPv4 and IPv6 addresses and blocks.
 **spfwalk** imports records from *include* domains, follows *redirect*
 directives, resolves *a* names and *mx* directives found in *SPF* records.
 
-The options are as follows:
-
-**-4**
-
-> Look-up IPv4 records.
-> (Disables default-lookup of IPv6 unless -6 specified.)
-
-**-6**
-
-> Look-up IPv6 records.
-> (Disables default-lookup of IPv4 unless -4 specified.)
-
-**-h**
-
-> Help message.
-
 ### Features
 
 + Fully-recursive look ups
