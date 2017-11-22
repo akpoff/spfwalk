@@ -50,6 +50,7 @@ Copyright and License
 ---------------------
 
 Copyright (c) 2008-2017 Gilles Chehade <gilles@poolp.org>
+
 Copyright (c) 2016-2017 Aaron Poffenberger <akp@hypernote.com>
 
 Permission to use, copy, modify, and distribute this software for any
