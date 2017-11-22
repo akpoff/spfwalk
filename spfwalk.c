@@ -66,9 +66,6 @@ main(int argc, char *argv[])
 	argv += optind;
 	argc -= optind;
 
-	if (argc == 0 && isatty(STDIN_FILENO))
-		usage();
-
   	event_init();
 
 	if (argc > 0) {
