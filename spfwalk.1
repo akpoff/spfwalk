@@ -51,6 +51,11 @@ Look-up a single domain:
 .Bd -literal
 	spfwalk example.com
 .Ed
+.Pp
+Look-up IPv4 records of multiple domains:
+.Bd -literal
+	spfwalk -4 example.com example.org
+.Ed
 .Sh DIAGNOSTICS
 .Nm
 utility always exits 0.
