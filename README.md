@@ -46,10 +46,6 @@ spf_fetch gmail.com
 2c0f:fb50:4000::/36
 ```
 
-Each domain from the list and all domains discovered as `include`,
-`redirect`, or `mx` in the SPF records will be recursively looked up to
-get their relevant IPs addresses.
-
 Copyright and License
 ---------------------
 
