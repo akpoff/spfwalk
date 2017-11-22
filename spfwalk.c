@@ -79,20 +79,17 @@ main(int argc, char *argv[])
 	argv += optind;
 	argc -= optind;
 
-	if (argc == 0 && isatty(STDIN_FILENO))
-		usage();
-
 	event_init();
 
 	if (argc > 0) {
-	  for (i = 0; argv[i]; ++i)
-		lookup_record(T_TXT, argv[i], dispatch_txt);
+		for (i = 0; argv[i]; ++i)
+			lookup_record(T_TXT, argv[i], dispatch_txt);
 	} else {
 		char *line = NULL;
 		size_t linesize = 0;
 		ssize_t linelen;
 
-		while ((linelen = getdelim(&line, &linesize, ' ', stdin)) != -1) {
+		while ((linelen = getline(&line, &linesize, stdin)) != -1) {
 			while (linelen-- > 0 && isspace(line[linelen]))
 				line[linelen] = '\0';
 
