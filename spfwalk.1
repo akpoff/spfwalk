@@ -24,6 +24,9 @@
 .Sh SYNOPSIS
 .Nm spfwalk
 .Bk -words
+.Op Fl 46h
+.Op Fl 4
+.Op Fl 6
 .Op Fl h
 .Ar domain ...
 .Ek
@@ -34,6 +37,12 @@ line or stdin, printing the results to stdout, one line per record.
 .Pp
 The options are as follows:
 .Bl -tag -width Ds
+.It Fl 4
+Look-up IPv4 records.
+(Disables default-lookup of IPv6 unless -6 specified.)
+.It Fl 6
+Look-up IPv6 records.
+(Disables default-lookup of IPv4 unless -4 specified.)
 .It Fl h
 Help message.
 .El
