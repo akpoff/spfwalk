@@ -42,12 +42,16 @@ static void	dispatch_aaaa(struct dns_rr *);
 void	lookup_record(int, const char *, void (*)(struct dns_rr *));
 void	dispatch_record(struct asr_result *, void *);
 
+int     ip_v4 = 0;
+int     ip_v6 = 0;
+int     ip_both = 1;
+
 static void
 usage(void)
 {
 	extern char	*__progname;
 
-	fprintf(stderr, "usage: %s [-h] domain ...\n", __progname);
+	fprintf(stderr, "usage: %s [-46h] domain ...\n", __progname);
 	exit(1);
 }
 
@@ -56,8 +60,16 @@ main(int argc, char *argv[])
 {
 	int		c,i;
 
-	while ((c = getopt(argc, argv, "h")) != -1) {
+	while ((c = getopt(argc, argv, "46h")) != -1) {
 		switch (c) {
+		case '4':
+			ip_both = 0;
+			ip_v4 = 1;
+			break;
+		case '6':
+			ip_both = 0;
+			ip_v6 = 1;
+			break;
 		case 'h':
 			usage();
 			break;
@@ -151,19 +163,23 @@ dispatch_txt(struct dns_rr *rr)
 			continue;
 		
 		if (strncasecmp("ip4:", *ap, 4) == 0) {
-			printf("%s\n", *(ap) + 4);
+			if (ip_v4 == 1 || ip_both == 1)
+				printf("%s\n", *(ap) + 4);
 			continue;
 		}
 		if (strncasecmp("ip6:", *ap, 4) == 0) {
-			printf("%s\n", *(ap) + 4);
+			if (ip_v6 == 1 || ip_both == 1)
+				printf("%s\n", *(ap) + 4);
 			continue;
 		}
 		if (strncasecmp("+ip4:", *ap, 5) == 0) {
-			printf("%s\n", *(ap) + 5);
+			if (ip_v4 == 1 || ip_both == 1)
+				printf("%s\n", *(ap) + 5);
 			continue;
 		}
 		if (strncasecmp("+ip6:", *ap, 5) == 0) {
-			printf("%s\n", *(ap) + 5);
+			if (ip_v6 == 1 || ip_both == 1)
+				printf("%s\n", *(ap) + 5);
 			continue;
 		}		
 		if (strncasecmp("include:", *ap, 8) == 0) {
