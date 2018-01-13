@@ -32,8 +32,25 @@
 .Ek
 .Sh DESCRIPTION
 .Nm
-recursively looks up SPF records for the domains passed in on the command
+recursively looks up
+.Em SPF
+records for the domains passed in on the command
 line or stdin, printing the results to stdout, one line per record.
+.Pp
+.Nm
+imports records from
+.Em include
+domains,
+follows
+.Em redirect
+directives,
+resolves
+.Em a
+names and
+.Em mx
+directives found in
+.Em SPF
+records.
 .Pp
 The options are as follows:
 .Bl -tag -width Ds
