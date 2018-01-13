@@ -81,4 +81,14 @@ S. Kitterman, Sender Policy Framework (SPF) for Authorizing Use of Domains
 in Email, RFC 7208, April 2014.
 .Sh BUGS
 .Nm
+does not work with
+.Em exists ,
+.Em ptr ,
+or
+.Em ip4
+and
+.Em ip6
+tests.
+.Pp
+.Nm
 should return error codes for conditions like failed look-ups.
