@@ -79,7 +79,7 @@ main(int argc, char *argv[])
 	argv += optind;
 	argc -= optind;
 
-  	event_init();
+	event_init();
 
 	if (argc > 0) {
 		for (i = 0; argv[i]; ++i)
