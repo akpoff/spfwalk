@@ -42,9 +42,9 @@ static void	dispatch_aaaa(struct dns_rr *);
 void	lookup_record(int, const char *, void (*)(struct dns_rr *));
 void	dispatch_record(struct asr_result *, void *);
 
-int     ip_v4 = 0;
-int     ip_v6 = 0;
-int     ip_both = 1;
+int	ip_v4 = 0;
+int	ip_v6 = 0;
+int	ip_both = 1;
 
 static void
 usage(void)
@@ -102,7 +102,7 @@ main(int argc, char *argv[])
 	if (pledge("dns stdio", NULL) == -1)
 		err(1, "pledge");
 
-  	event_dispatch();
+	event_dispatch();
 
 	return 0;
 }
@@ -145,11 +145,11 @@ dispatch_record(struct asr_result *ar, void *arg)
 void
 dispatch_txt(struct dns_rr *rr)
 {
-        char buf[512];
-        char buf2[512];
-        char *in = buf;
-        char *argv[512];
-        char **ap = argv;
+	char buf[512];
+	char buf2[512];
+	char *in = buf;
+	char *argv[512];
+	char **ap = argv;
  
 	print_dname(rr->rr.other.rdata, buf, sizeof(buf));
 	buf[strlen(buf) - 1] = '\0';
