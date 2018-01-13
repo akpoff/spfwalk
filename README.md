@@ -19,10 +19,10 @@ See the man page for further details.
 
 ### Example Output
 
-Given a domain like **gmail.com** `spf_fetch` will return:
+Given a domain like **gmail.com** `spfwalk` will return:
 
 ```
-spf_fetch gmail.com
+spfwalk gmail.com
 
 64.18.0.0/20
 64.233.160.0/19
