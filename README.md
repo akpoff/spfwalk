@@ -17,6 +17,13 @@ directives, resolves *a* names and *mx* directives found in *SPF* records.
 
 See the man page for further details.
 
+### Note
+
+**spfwalk** is currently OpenBSD-centric due to 1) the Makefile, and 2) the use
+of pledge(2).
+
+Portability is in the works.
+
 ### Example Output
 
 Given a domain like **gmail.com** `spfwalk` will return:
